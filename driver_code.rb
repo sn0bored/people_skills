@@ -22,7 +22,6 @@ clean_up_data
 zee = User.create({:name => "Zee", :email => "zee@example.com"})
 beard_growing = Skill.create({:name => "Beard Growing", :context => "personal"})
 
-
 ### This confirms you may add a skill to a user 
 zee.skills << beard_growing
 assert(Skill.find_by_name("Beard Growing").users.include?(zee), "Zee has the beard growing skill!")
@@ -35,6 +34,7 @@ assert(Skill.find_by_name("Programming").users.include?(zee), "Zee can Programm!
 ### This confirms that skills can have many users
 jesse = User.create({:name => "Jesse", :email => "jesse@example.com"})
 beard_growing.users << jesse
+
 assert(Skill.find_by_name("Beard Growing").users.include?(jesse), "Jesse has the beard growing skill!")
 
 ### This confirms that skills cannot have the same name
